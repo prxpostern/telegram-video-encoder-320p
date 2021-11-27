@@ -79,7 +79,7 @@ async def download_url_link(client, message):
             link = link.strip()
             filename = os.path.basename(link)
             filename = filename.replace('%40','@')
-            dl_path = os.path.join("./", os.path.basename(link))
+            dl_path = os.path.join("./", filename)
         else:
             await m.reply_text(text=f"I Could not Determine The FileType !\nPlease Use Custom Filename With Extension\nSee /help", quote=True)
             return
