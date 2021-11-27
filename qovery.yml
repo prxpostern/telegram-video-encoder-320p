@@ -1,0 +1,10 @@
+application:
+  name: "videotrimaudioExtractor"
+  project: "videotrimaudioExt"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-videotrimaudioExt"
+  routes:
+  - application_name: "videotrimaudioExtractor"
+    paths:
+    - "/*"
