@@ -1,16 +1,13 @@
 {
-    "name": "Streams Extractor Bot",
-    "description": "A bot to extract audio and subtitles from video files..",
+    "name": "320p Encoder Bot",
+    "description": "A bot to encode video to 320p x264",
     "logo": "https://telegra.ph/file/71aaa621508cd696ab538.jpg",
     "keywords": [
-        "Streams",
-        "Extractor",
-        "Telegram Bot",
-        "TroJanzHEX"
+        "Encoder",
+        "x264",
+        "Telegram Bot"
     ],
-    "website": "https://TroJanzHEX.me",
-    "repository": "https://github.com/TroJanzHEX/Streams-Extractor",
-    "success_url": "https://telegram.dog/TroJanzHEX",
+    "repository": "https://github.com/prxpostern/telegram-video-encoder-320p",
     "env": {
         "BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
