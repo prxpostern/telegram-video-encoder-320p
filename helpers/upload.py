@@ -58,8 +58,9 @@ async def upload_video(client, message, file_loc):
         )
     except Exception as e:
         print(e)     
-        await msg.edit_text(f"**Some Error Occurred.\n\n{e}**")   
-        return False
+        await msg.edit_text(f"**Some Error Occurred.\n\n{e}**")
+        return True
 
     await msg.delete()
     await clean_up(file_loc)
+    return False
