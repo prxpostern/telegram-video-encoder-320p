@@ -45,7 +45,7 @@ async def upload_video(client, message, file_loc):
             chat_id=message.chat.id,
             video=file_loc,
             thumb=str(thumbnail),
-            caption=f"{fn} [{size}]",
+            caption=f"`{fn}` [{size}]",
             width=width,
             height=height,
             duration=duration,
