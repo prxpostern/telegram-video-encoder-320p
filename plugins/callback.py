@@ -13,7 +13,7 @@ from script import Script
 from helpers.progress import PRGRS
 from helpers.tools import clean_up
 from helpers.download import download_file, DATA, download_url_link
-from helpers.ffmpeg import extract_audio, extract_subtitle
+
 
 
 @trojanz.on_callback_query()
