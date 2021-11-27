@@ -57,8 +57,11 @@ async def download_file(client, message):
 
     await clean_up(dwld_loc)
     await msg.edit_text(f"**Encoded Successfully !**")
-    await upload_video(client, msg, out_loc)
-    
+    status = await upload_video(client, msg, out_loc)
+    if status:
+        await msg.edit_text(f"**Trying again in 3 seconds...**")
+        await asyncio.sleep(3)
+        await upload_video(client, msg, out_loc)
 
 async def download_url_link(client, message):
     
@@ -112,4 +115,8 @@ async def download_url_link(client, message):
 
     await clean_up(dwld_loc)
     await msg.edit_text(f"**Encoded Successfully !**")
-    await upload_video(client, msg, out_loc)
+    status = await upload_video(client, msg, out_loc)
+    if status:
+        await msg.edit_text(f"**Trying again in 3 seconds...**")
+        await asyncio.sleep(3)
+        await upload_video(client, msg, out_loc)
