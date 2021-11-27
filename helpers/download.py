@@ -57,7 +57,7 @@ async def download_file(client, message):
 
     await clean_up(dwld_loc)
     await msg.edit_text(f"**Encoded Successfully !**")
-    await upload_video(client, media, out_loc)
+    await upload_video(client, message, out_loc)
     
 
 async def download_url_link(client, message):
@@ -112,4 +112,4 @@ async def download_url_link(client, message):
 
     await clean_up(dwld_loc)
     await msg.edit_text(f"**Encoded Successfully !**")
-    await upload_video(client, m, out_loc)
+    await upload_video(client, message, out_loc)
