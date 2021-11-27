@@ -29,6 +29,9 @@ async def upload_video(client, message, file_loc):
     if metadata and metadata.has("width") and metadata.has("height"):
         width = metadata.get("width")
         height = metadata.get("height")
+    else:
+        width = 320
+        height = 240
     size = os.path.getsize(file_loc)
     size = get_size(size)
     fn = os.path.basename(file_path)
