@@ -4,3 +4,4 @@ ffmpeg
 hachoir
 pyromod
 aiohttp
+asyncio
