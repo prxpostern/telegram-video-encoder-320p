@@ -36,13 +36,13 @@ async def download_file(client, message):
         message=media,
         progress=progress_func,
         progress_args=(
-            "**Downloading your file to server...**",
+            "**Downloading Source Media:**",
             msg,
             c_time
         )
     )
 
-    await msg.edit_text("Processing your file....")
+    await msg.edit_text(f"**Encoding. Please Wait ...**")
     
     out_loc = os.path.basename(dwld_loc)
     out_loc = os.path.splitext(out_loc)[0]
@@ -56,6 +56,7 @@ async def download_file(client, message):
         return
 
     await clean_up(dwld_loc)
+    await msg.edit_text(f"**Encoded Successfully !**")
     await upload_video(client, message, out_loc)
     
 
@@ -96,6 +97,8 @@ async def download_url_link(client, message):
         await clean_up(dwld_loc)
         return
     
+    await msg.edit_text(f"**Encoding. Please Wait ...**")
+    
     out_loc = os.path.basename(dwld_loc)
     out_loc = os.path.splitext(out_loc)[0]
     out_loc = str(out_loc) + "_320p.mp4"
@@ -108,4 +111,5 @@ async def download_url_link(client, message):
         return
 
     await clean_up(dwld_loc)
+    await msg.edit_text(f"**Encoded Successfully !**")
     await upload_video(client, message, out_loc)
