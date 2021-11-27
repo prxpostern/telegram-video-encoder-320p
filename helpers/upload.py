@@ -37,7 +37,7 @@ async def upload_video(client, message, file_loc):
     fn = os.path.basename(file_path)
     
     await msg.edit(f"🏞 Generating thumbnail")
-    thumbnail = await thumb_creator(file_path)
+    thumbnail = await thumb_creator(file_loc)
     
     c_time = time.time()    
     try:
@@ -59,7 +59,7 @@ async def upload_video(client, message, file_loc):
     except Exception as e:
         print(e)     
         await msg.edit_text(f"**Some Error Occurred.\n\n{e}**")   
-        return
+        return False
 
     await msg.delete()
     await clean_up(file_loc)
