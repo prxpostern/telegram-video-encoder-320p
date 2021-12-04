@@ -29,8 +29,7 @@ async def upload_video(client, message, file_loc):
     size = os.path.getsize(file_loc)
     size = get_size(size)
     fn = os.path.basename(file_loc)
-    
-    await msg.edit(f"🏞 Generating thumbnail")
+
     thumbnail = await thumb_creator(file_loc)
     
     msg = await message.edit_text(
