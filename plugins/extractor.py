@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @trojanzhex
 
 
 from pyrogram import filters
@@ -20,10 +19,14 @@ async def confirm_dwnld(client, message):
 
     media = message
     filetype = media.document or media.video
+    if filetype.file_name:
+        fn = filetype.file_name
+    else:
+        fn = "No Filename."
 
     if filetype.mime_type.startswith("video/"):
         await message.reply_text(
-            "**What you want me to do??**",
+            f"**What you want me to do??**\n\n`{fn}`",
             quote=True,
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton(text="DOWNLOAD and PROCESS", callback_data="download_file")],
