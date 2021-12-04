@@ -115,7 +115,7 @@ async def cb_handler(client, query):
         try:
             stream_type, mapping, keyword = query.data.split('_')
             data = DATA[keyword][int(mapping)]
-            await extract_audio(client, query.message, data)
+            await enc_video(client, query.message, data)
         except:
             await query.message.edit_text("**Details Not Found**")   
 
