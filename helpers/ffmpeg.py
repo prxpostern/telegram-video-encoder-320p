@@ -7,12 +7,12 @@ import os
 
 async def enc_video(client, message, data):
     
-    await message.edit_text("`Encoding Video ...`\n\n**please wait**")
-
     dwld_loc = data['location']
     
+    await message.edit_text(f"`{dwld_loc}`\n\nEncoding Video ...\n\n**please wait**")
+
     if os.path.splitext(dwld_loc)[1]:
-        dwld_loc = os.path.splitext(dwld_loc)[0]
+        out_loc = os.path.splitext(dwld_loc)[0]
         out_loc = dwld_loc + "_320p.mp4"
     else:
         out_loc = dwld_loc + "_320p.mp4"
