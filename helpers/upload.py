@@ -64,3 +64,33 @@ async def upload_video(client, message, file_loc):
     await msg.delete()
     await clean_up(file_loc)
     return False
+
+async def upload_subtitle(client, message, file_loc):
+
+    msg = await message.edit_text(
+        text="**Uploading extracted subtitle...**",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
+    )
+
+    c_time = time.time() 
+
+    try:
+        await client.send_document(
+            chat_id=message.chat.id,
+            document=file_loc,
+            caption="**@posternaudext001bot**",
+            progress=progress_func,
+            progress_args=(
+                "**Uploading extracted subtitle...**",
+                msg,
+                c_time
+            )
+        )
+    except Exception as e:
+        print(e)     
+        await msg.edit_text("**Some Error Occurred. See Logs for More Info.**")   
+        return
+
+    await msg.delete()
+    await clean_up(file_loc)
