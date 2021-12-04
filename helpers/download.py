@@ -102,13 +102,14 @@ async def download_url_link(client, message):
         await clean_up(dwld_loc)
         return
     
-    await msg.edit_text(f"**Encoding. Please Wait ...**")
+    await msg.edit_text(f"`{dwld_loc}`\n\n**Encoding. Please Wait ...**")
     
     out_loc = os.path.basename(dwld_loc)
     out_loc = os.path.splitext(out_loc)[0]
     out_loc = str(out_loc) + "_320p.mp4"
     
-    out, err, rcode, pid = await execute(f"ffmpeg -i \"{dwld_loc}\" -c:v libx264 -crf 20 -s 320*240 -c:a aac -af \"pan=stereo|c0=c01|c1=c1\" -ar 48000 -ab 96k \"{out_loc}\" -y")
+    #out, err, rcode, pid = await execute(f"ffmpeg -i \"{dwld_loc}\" -c:v libx264 -crf 20 -s 320*240 -c:a aac -af \"pan=stereo|c0=c01|c1=c1\" -ar 48000 -ab 96k \"{out_loc}\" -y")
+    out, err, rcode, pid = await execute(f"ffmpeg -i \"{dwld_loc}\" -c:v libx264 -crf 20 -s 320*240 -c:a aac -ar 48000 -ab 96k \"{out_loc}\" -y")
     if rcode != 0:
         await message.edit_text(f"**Error Occured.**\n\n{err}")
         print(err)
