@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from helpers.progress import progress_func
 from helpers.tools import execute, clean_up
 from helpers.download_from_url import download_link
-from helpers.upload import upload_video
+#from helpers.upload import upload_video
 
 DATA = {}
 
