@@ -16,12 +16,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 async def upload_video(client, message, file_loc):
 
-    msg = await message.edit_text(
-        text="**Uploading Video ...**",
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
-    )
-
     duration = 0
     metadata = extractMetadata(createParser(file_loc))
     if metadata and metadata.has("duration"):
@@ -38,6 +32,12 @@ async def upload_video(client, message, file_loc):
     
     await msg.edit(f"🏞 Generating thumbnail")
     thumbnail = await thumb_creator(file_loc)
+    
+    msg = await message.edit_text(
+        text="**Uploading Video ...**",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
+    )
     
     c_time = time.time()    
     try:
