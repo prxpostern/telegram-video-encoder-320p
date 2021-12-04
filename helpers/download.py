@@ -63,7 +63,7 @@ async def download_file(client, message):
         else:
             continue
         try: 
-            lang = str(stream["codec_type"]) + " - " + str(stream["codec_name"]) + " - " + str(stream["width"]) + "*" + str(stream["height"])
+            lang = str(stream["codec_name"]) + " - " + str(stream["width"]) + "*" + str(stream["height"])
         except:
             lang = mapping
         
@@ -149,7 +149,7 @@ async def download_url_link(client, message):
         else:
             continue
         try: 
-            lang = str(stream["codec_type"]) + " - " + str(stream["codec_name"]) + " - " + str(stream["width"]) + "*" + str(stream["height"])
+            lang = str(stream["codec_name"]) + " - " + str(stream["width"]) + "*" + str(stream["height"])
         except:
             lang = mapping
         
