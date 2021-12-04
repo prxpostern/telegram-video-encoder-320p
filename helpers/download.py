@@ -32,7 +32,7 @@ async def download_file(client, message):
 
     c_time = time.time()
 
-    dwld_loc = await client.download_media(
+    download_location = await client.download_media(
         message=media,
         progress=progress_func,
         progress_args=(
@@ -119,14 +119,14 @@ async def download_url_link(client, message):
     
     start = time.time()
     try:
-        dwld_loc = await download_link(link, dl_path, msg, start, client)
+        download_location = await download_link(link, dl_path, msg, start, client)
     except Exception as e:
         print(e)
         await msg.edit(f"**Download Failed** :\n\n{e}")
         await clean_up(dwld_loc)
         return
     
-    await msg.edit_text(f"`{dwld_loc}`\n\n**Encoding. Please Wait ...**")
+    await msg.edit_text(f"`{download_location}`\n\n**Encoding. Please Wait ...**")
     
     await msg.edit_text(f"`Analyzing Source Video ...`")
     
