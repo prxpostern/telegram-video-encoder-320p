@@ -3,6 +3,7 @@
 
 from helpers.tools import execute, clean_up
 from helpers.upload import upload_video, upload_subtitle
+import os
 
 async def enc_video(client, message, data):
     
