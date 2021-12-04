@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from helpers.tools import execute, clean_up
-from helpers.upload import upload_audio, upload_subtitle
+from helpers.upload import upload_video, upload_subtitle
 
 async def enc_video(client, message, data):
     
@@ -26,10 +26,10 @@ async def enc_video(client, message, data):
         return
 
     await clean_up(dwld_loc)
-    status = await upload_audio(client, message, out_loc)
+    status = await upload_video(client, message, out_loc)
     if status:
         time.sleep(3)
-        await upload_audio(client, message, out_loc)
+        await upload_video(client, message, out_loc)
 
 async def extract_subtitle(client, message, data):
     await message.edit_text("Extracting Stream from file")
