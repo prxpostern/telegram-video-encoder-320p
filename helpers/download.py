@@ -123,7 +123,7 @@ async def download_url_link(client, message):
     except Exception as e:
         print(e)
         await msg.edit(f"**Download Failed** :\n\n{e}")
-        await clean_up(dwld_loc)
+        await clean_up(download_location)
         return
     
     await msg.edit_text(f"`{download_location}`\n\n**Encoding. Please Wait ...**")
