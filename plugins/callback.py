@@ -110,7 +110,7 @@ async def cb_handler(client, query):
             ) 
 
 
-    elif query.data.startswith('audio'):
+    elif query.data.startswith('video'):
         await query.answer()
         try:
             stream_type, mapping, keyword = query.data.split('_')
