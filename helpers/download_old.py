@@ -26,7 +26,7 @@ async def download_file(client, message):
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton(text="Check Progress", callback_data="progress_msg")]
         ]),
-        reply_to_message_id=media.message_id
+        reply_to_message_id=media.id
     )
     filetype = media.document or media.video
 
@@ -90,7 +90,7 @@ async def download_url_link(client, message):
     msg = await client.send_message(
         chat_id=m.chat.id,
         text="**Downloading your Link to Server...**",
-        reply_to_message_id=m.message_id
+        reply_to_message_id=m.id
     )
     
     start = time.time()
